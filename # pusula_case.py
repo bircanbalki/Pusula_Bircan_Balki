@@ -73,3 +73,17 @@ for col in categorical_cols:
 # OneHotEncoder (çok kategorili kolonlar için)
 multi_cat_cols = [col for col in categorical_cols if df [col].nunnique()>2]
 df = pd.get_dummies(df, columns=multi_cat_cols, drop_first=True)
+
+# --- Scaling ---
+scaler= StandardScaler()
+df[numeric_cols]= scaler.fit_transform(df[numeric_cols])
+
+print ("\nFinal Dataset Shape:", df.shape)
+print ("\nFinal Columns:", df.columns.tolist())
+
+# ======================
+# 4. SAVE CLEAN DATA
+# ======================
+df.to_csv("cleaned_dataset.csv", index=False)
+print("\n OK Cleaned dataset saved as 'cleaned_dataset.csv'")
+
