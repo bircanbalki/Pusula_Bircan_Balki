@@ -13,7 +13,7 @@ from sklearn.preprocessing import OneHotEncoder, LabelEncoder, StandardScaler
 # ======================
 # 1. DATA LOADING
 # ======================
-df= pd.read_excel(r"C:\Users\birca\Documents\GitHub\Talent_Academy_Case_DT_2025.xlsx")
+df = pd.read_excel(r"C:\Users\birca\Documents\GitHub\Pusula_Bircan_Balki\Talent_Academy_Case_DT_2025.xlsx")
 print ("Dataset Shape: ", df.shape)
 print ("\nColumns: ", df.columns.tolist())
 print ("\nInfo: ")
