@@ -38,3 +38,14 @@ for col in numeric_cols:
     sns.boxplot(x=df[col])
     plt.title(f"Boxplot - {col}")
     plt.show()
+# Heatmap (numeric correlation)
+plt.figure(figsize=(10,6))
+sns.heatmap(df.corr(numeric_only=True), annot=True, cmap="coolwarm")
+plt.title("Correlation Heatmap")
+plt.show()
+
+#Kategorik değişkenler için countplot
+categorical_cols = df.select_dtypes(include=["object"]).columns
+for col in categorical_cols:
+    plt.figure(figsize=(8, 3))
+    sns.countplot(y=df[col],order=df[col])
