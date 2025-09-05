@@ -58,3 +58,12 @@ for col in categorical_cols:
 #---Eksik Değerler----
 #for numeric Columns to KNNImputer
 num_imputer=KNNImputer(n_neighbors=5)
+df [numeric_cols] = num_imputer.fit_transform(df[numeric_cols])
+# Kategorik kolonlar için SimpleImputer (en sık görülen değer ile)
+cat_imputer = SimpleImputer(strategy="most_frequent")
+df[categorical_cols] =cat_imputer.fit_transform(df[categorical_cols])
+# --- Encoding ---
+# LabelEncoder (ikili kategoriler için)
+le = LabelEncoder(
+    
+)
