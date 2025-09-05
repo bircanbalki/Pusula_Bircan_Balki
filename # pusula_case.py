@@ -48,4 +48,13 @@ plt.show()
 categorical_cols = df.select_dtypes(include=["object"]).columns
 for col in categorical_cols:
     plt.figure(figsize=(8, 3))
-    sns.countplot(y=df[col],order=df[col])
+    sns.countplot(y=df[col],order=df[col].value_counts().index)
+    plt.title(f"Countplot - {col}")
+    plt.show()
+# ======================
+# 3. DATA PREPROCESSING
+# ======================  
+
+#---Eksik Değerler----
+#for numeric Columns to KNNImputer
+num_imputer=KNNImputer(n_neighbors=5)
