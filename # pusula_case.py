@@ -71,7 +71,7 @@ for col in categorical_cols:
 
 
 # OneHotEncoder (çok kategorili kolonlar için)
-multi_cat_cols = [col for col in categorical_cols if df [col].nunnique()>2]
+multi_cat_cols = [col for col in categorical_cols if df [col].nunique()>2]
 df = pd.get_dummies(df, columns=multi_cat_cols, drop_first=True)
 
 # --- Scaling ---
