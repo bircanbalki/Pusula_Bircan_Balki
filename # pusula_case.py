@@ -4,7 +4,7 @@
 
 import pandas as pd 
 import numpy as np
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import seaborn as sns
 
 from sklearn.impute import SimpleImputer, KNNImputer
@@ -28,8 +28,9 @@ print("\nDescriptive Statistics:\n ", df.describe(include="all"))
 # Eksik Değer Kontrolü
 print("\nMissing Values:\n ", df.isnull().sum())
 #Histogramlar
-df.hist(bins=30, figsize=(15,10))
-plt.suptitle("Numerical Features Histogram" , fontsize=16)
+fig= df.hist(bins=30, figsize=(15,10))
+plt.gcf().suptitle("Numerical Features Histogram", fontsize=16)
+plt.tight_layout()
 plt.show()
 #Boxplot (numeric outlier kontolü için)
 numeric_cols = df.select_dtypes(include=[np.number]).columns
