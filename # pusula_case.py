@@ -64,6 +64,12 @@ cat_imputer = SimpleImputer(strategy="most_frequent")
 df[categorical_cols] =cat_imputer.fit_transform(df[categorical_cols])
 # --- Encoding ---
 # LabelEncoder (ikili kategoriler için)
-le = LabelEncoder(
-    
-)
+le = LabelEncoder()
+for col in categorical_cols:
+    if df[col].nunique() ==2 :
+        df[col] = le.fit_transform(df[col])
+
+
+# OneHotEncoder (çok kategorili kolonlar için)
+multi_cat_cols = [col for col in categorical_cols if df [col].nunnique()>2]
+df = pd.get_dummies(df, columns=multi_cat_cols, drop_first=True)
