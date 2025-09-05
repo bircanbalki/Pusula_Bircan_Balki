@@ -19,3 +19,11 @@ print ("\nColumns: ", df.columns.tolist())
 print ("\nInfo: ")
 print (df.info())
 print ("\nFirst Rows:\n ", df.head())
+# ======================
+# 2. EXPLORATORY DATA ANALYSIS (EDA)
+# ======================
+
+# Genel istatistikler
+print("\nDescriptive Statistics:\n ", df.describe(include="all"))
+# Eksik Değer Kontrolü
+print("\nMissing Values:\n ", df.isnull().sum())
